@@ -2,6 +2,9 @@ import About from "../containers/about/About";
 import Department from "../containers/admin/department/Department";
 import Product from "../containers/admin/product/Product";
 import University from "../containers/admin/unversity/University";
+import Cart from "../containers/cart/Cart";
+import OrderSummary from "../containers/cart/OrderSummary";
+import PaymentForm from "../containers/cart/Payment";
 import Contact from "../containers/contact/Contact";
 import Login from "../containers/login/Login";
 import Register from "../containers/register/Register";
@@ -62,6 +65,18 @@ const  ROUTES={
     productDetail:{
         name:"/productDetail",
         component:<ProductDetail/>,
+    },
+    userCart:{
+        name:"/userCart",
+        component:<Cart/>,
+    },
+    OrderSummary:{
+        name:"/orderSummary",
+        component:<OrderSummary/>,
+    },
+    payment:{
+        name:"/payment",
+        component:<PaymentForm/>,
     },
 
 };

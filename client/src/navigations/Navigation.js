@@ -20,7 +20,11 @@ function Navigation() {
         <Route path={ROUTES.productAdmin.name} element={ROUTES.productAdmin.component} />
         <Route path={ROUTES.userhome.name} element={ROUTES.userhome.component} />
         <Route path={ROUTES.departmentUser.name} element={ROUTES.departmentUser.component} />
+        <Route path={ROUTES.userCart.name} element={ROUTES.userCart.component} />
+        <Route path={ROUTES.OrderSummary.name} element={ROUTES.OrderSummary.component} />
+        <Route path={ROUTES.payment.name} element={ROUTES.payment.component} />
 
+        
 
 
 

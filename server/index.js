@@ -7,6 +7,9 @@ import { CreateUniversity, DeleteUniversity,GetUniversity,UpdateUniversity } fro
 import { CreateDepartment, DeleteDepartment, GetDepartmentByUniversity, UpdateDepartment } from "./controllers/Department.js";
 import { CreateProduct, DeleteProduct,  GetProductByDepartmentId, GetProductDetails, UpdateProduct, UpdateProductQty } from "./controllers/Product.js";
 import { Login, Register } from "./controllers/User.js";
+import { addItem, CreateCart, DeleteItem, GetItems, UpdateItem } from "./controllers/Cart.js";
+import { placeOrder } from "./controllers/OrderHeader.js";
+import { getAddresses, saveAddress } from "./controllers/AllAddress.js";
 dotenv.config();
 
 const app=express();
@@ -79,9 +82,25 @@ app.use(express.static("uploadUniv/"));
 app.use(express.static("uploadDep/"));
 app.use(express.static("uploadPrd/"));
 
+//Cart 
+
+app.get("/getItems", GetItems);              
+app.post("/add", addItem);              
+app.put("/update/:id", UpdateItem);     
+app.delete("/delete/:id", DeleteItem);  
+app.post("/create", CreateCart); 
+
+//order
+app.post("/order",placeOrder);
+
+//Addresses
+
+app.get("/getaddress",getAddresses)
+app.post("/address",saveAddress)
 
 
-//url--http:127.0.0.1:8081/university
+
+//url--http://127.0.0.1:8081/university
 
 mongoose.connect(process.env.DB_URL).then(()=>{
     console.log('database connected');

@@ -3,19 +3,19 @@ import mongoose from "mongoose";
 const ProductSchema=new mongoose.Schema({
     name:{
         type:String,
-        require:true
+        required:true
     },
     description:{
         type:String,
-        require:true
+        required:true
     },
     price:{
         type:Number,
-        require:true
+        required:true
     },
     qty:{
         type:Number,
-        require:true
+        required:true
     },
     active:{
         type:Boolean,
@@ -23,12 +23,12 @@ const ProductSchema=new mongoose.Schema({
     },
     images:{
         type:[String],
-        require:true
+        required:true
     },
     department:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"department",
-        require:true,
+        required:true,
     },
 },
 {timestamps:true}

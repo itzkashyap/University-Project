@@ -46,7 +46,7 @@ return products?.map((item)=>{
                 }}
                 className="btn btn-primary"
               >
-                View Product
+                View Product Details
               </a>
         </div>
       </div>

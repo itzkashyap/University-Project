@@ -10,8 +10,9 @@ function NavBar() {
     let id=localStorage.getItem("id");
     let role=localStorage.getItem("role");
     if(id) setUser({id:id,role:role});
-
+   
   },[]);
+  
 
   function renderMenu(){
     if(user?.role=="admin"){
@@ -25,23 +26,39 @@ function NavBar() {
 
       );
     }else{
-      return(
+      return (
         <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <Link className='nav-link' to={ROUTES.userhome.name}>Home</Link>
-        </li>        
-
-        <li class="nav-item active">
-          <Link className='nav-link' to={ROUTES.about.name}>About</Link>
-        </li> 
-        <li class="nav-item active">
-          <Link className='nav-link' to={ROUTES.contact.name}>Contact</Link>
-        </li>    <li class="nav-item active">
-          <Link className='nav-link' to={ROUTES.support.name}>Support</Link>
-        </li> 
-           
-      </ul>
-
+          <li class="nav-item active">
+            <Link className="nav-link" to={ROUTES.userhome.name}>
+              <h2>
+                <i className="fa fa-home"></i>
+              </h2>
+            </Link>
+          </li>
+          <li class="nav-item active">
+            <Link className="nav-link" to={ROUTES.about.name}>
+              About
+            </Link>
+          </li>
+          <li class="nav-item active">
+            <Link className="nav-link" to={ROUTES.contact.name}>
+              Contact
+            </Link>
+          </li>{" "}
+          <li class="nav-item active">
+            <Link className="nav-link" to={ROUTES.support.name}>
+              Support
+            </Link>
+          </li>
+          <li class="nav-item active">
+            <Link className="nav-link" to={ROUTES.userCart.name}>
+              <h2>
+                <i className="fa fa-shopping-cart"></i>
+              </h2>
+             
+            </Link>
+          </li>
+        </ul>
       );
     }
   }
@@ -51,7 +68,7 @@ function renderButton() {
     return (
       <form class="form-inline my-2 my-lg-0">
         <button
-          class="btn btn-outline-success my-2 my-sm-0"
+          class="btn btn-success my-2 my-sm-0"
           onClick={() => {
             localStorage.clear();
             navigate(ROUTES.login.name);
@@ -66,7 +83,7 @@ function renderButton() {
       <>
         <form class="form-inline my-2 my-lg-0">
           <button
-            class="btn btn-outline-info my-2 my-sm-0"
+            class="btn btn-success my-2 my-sm-0"
             onClick={() => {
               navigate(ROUTES.register.name);
             }}
@@ -76,7 +93,7 @@ function renderButton() {
         </form>
         <form class="form-inline my-2 my-lg-0">
           <button
-            class="btn btn-outline-primary my-2 my-sm-0"
+            class="btn btn-success my-2 my-sm-0"
             onClick={() => {
               navigate(ROUTES.login.name);
             }}
@@ -91,7 +108,7 @@ function renderButton() {
 
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-info">
         
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           {renderMenu()}
