@@ -57,7 +57,7 @@ const ShoppingCart = () => {
       <NavBar />
       <div className="cart-container">
         <h2 className="cart-title">MY CART</h2>
-        <div className="cart-items">.3
+        <div className="cart-items">
           {cart.items.map((item) => (
             <div key={item._id} className="cart-item">  
               <img
