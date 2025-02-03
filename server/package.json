@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "my first university ecomerse project",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
@@ -16,6 +16,7 @@
     "express": "^4.21.2",
     "mongoose": "^8.9.3",
     "multer": "^1.4.5-lts.1",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "stripe": "^17.6.0"
   }
 }

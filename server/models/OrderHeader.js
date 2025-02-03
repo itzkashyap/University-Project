@@ -1,33 +1,45 @@
 import mongoose from "mongoose";
 
-const OrderSchema = new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId,
-     ref: "user",
-     required: true },
-  items: [
-    {
-      productId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "product",
-        required: true,
-      },
-      quantity: {
-         type: Number,
-         required: true
-         },
-      price: { 
-        type: Number,
-        required: true 
-        },
+const OrderSchema = new mongoose.Schema(
+  {
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "user",
+      required: true,
     },
-  ],
-  totalPrice: { type: Number, required: true },
-  address: {
-    type:String,required:true
+    items: [
+      {
+        productId: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "product",
+          required: true,
+        },
+        quantity: {
+          type: Number,
+          required: true,
+        },
+        price: {
+          type: Number,
+          required: true,
+        },
+      },
+    ],
+    totalPrice: {
+      type: Number,
+      required: true,
+    },
+    address: {
+      type: String,
+      required: true,
+    },
+    status: {
+      type: String,
+      default: "Pending",
+    },
+   
   },
-  status: { type: String, default: "Pending" },
-  createdAt: { type: Date, default: Date.now },
-});
+  { timestamps: true }
+);
 
 const OrderModel = mongoose.model("Order", OrderSchema);
 

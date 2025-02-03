@@ -37,6 +37,25 @@ export const addItem = async (req, res) => {
     }
 };
 
+// Add this function in your Cart Controller
+export const clearCartAfterPayment = async (req, res) => {
+    const { userId } = req.body;
+
+    try {
+        // Find and delete the cart for the user
+        const cart = await CartModel.findOneAndDelete({ userId });
+
+        if (!cart) {
+            return res.status(404).json({ message: "Cart not found" });
+        }
+
+        res.json({ message: "Cart cleared successfully" });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+
 export const UpdateItem = async (req, res) => {
     const { userId, productId, quantity } = req.body;
 

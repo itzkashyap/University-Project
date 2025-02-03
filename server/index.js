@@ -7,14 +7,68 @@ import { CreateUniversity, DeleteUniversity,GetUniversity,UpdateUniversity } fro
 import { CreateDepartment, DeleteDepartment, GetDepartmentByUniversity, UpdateDepartment } from "./controllers/Department.js";
 import { CreateProduct, DeleteProduct,  GetProductByDepartmentId, GetProductDetails, UpdateProduct, UpdateProductQty } from "./controllers/Product.js";
 import { Login, Register } from "./controllers/User.js";
-import { addItem, CreateCart, DeleteItem, GetItems, UpdateItem } from "./controllers/Cart.js";
-import { placeOrder } from "./controllers/OrderHeader.js";
+import { addItem, clearCartAfterPayment, CreateCart, DeleteItem, GetItems, UpdateItem } from "./controllers/Cart.js";
+import {  placeOrder, updateOrderStatus } from "./controllers/OrderHeader.js";
 import { getAddresses, saveAddress } from "./controllers/AllAddress.js";
+import Stripe from "stripe";
 dotenv.config();
 
 const app=express();
 app.use(cors());
 app.use(express.json());
+
+app.use(cors({
+    origin: "http://localhost:3000", // Allow frontend
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
+//stripe
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+app.post("/api/payments/create-payment-intent", async (req, res) => {
+    try {
+        const { amount } = req.body;
+        if (!amount || isNaN(amount) || amount <= 0) {
+            return res.status(400).json({ error: "Invalid amount" });
+        }
+
+        const paymentIntent = await stripe.paymentIntents.create({
+            amount: Math.round(amount * 100), // Convert to cents
+            currency: "inr",
+            payment_method_types: ["card"],
+        });
+
+        res.json({ clientSecret: paymentIntent.client_secret });
+    } catch (error) {
+        console.error("Stripe error:", error);
+        res.status(500).json({ error: error.message });
+    }
+});
+app.post("/api/orders/placeOrder", placeOrder);
+app.put("/api/orders/updateOrderStatus/:orderId", updateOrderStatus);
+app.post("/carts/clearCartAfterPayment", clearCartAfterPayment);
+
+
+
+
+// app.post("/api/payments/create-payment-intent", async (req, res) => {
+//     try {
+//         const { amount } = req.body;
+  
+//         const paymentIntent = await stripe.paymentIntents.create({
+//             amount: amount * 100, // Convert to cents
+//             currency: "usd",
+//             payment_method_types: ["card"],
+//         });
+  
+//         res.json({ clientSecret: paymentIntent.client_secret });
+//     } catch (error) {
+//         console.error("Stripe error:", error);
+//         res.status(500).json({ error: error.message });
+//     }
+//   });
+  
+  
 
 //university module
 
@@ -91,12 +145,14 @@ app.delete("/delete/:id", DeleteItem);
 app.post("/create", CreateCart); 
 
 //order
-app.post("/order",placeOrder);
+app.post("/placeOrder",placeOrder);
 
 //Addresses
 
 app.get("/getaddress",getAddresses)
 app.post("/address",saveAddress)
+
+
 
 
 

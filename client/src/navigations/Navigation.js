@@ -2,11 +2,15 @@ import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ROUTES from './Routes'
 
+
 function Navigation() {
   return (
     <>
     <BrowserRouter>
+   
+
     <Routes>
+
         <Route path={ROUTES.about.name} element={ROUTES.about.component} />
         <Route path={ROUTES.contact.name} element={ROUTES.contact.component} />
         <Route path={ROUTES.userhome.name} element={ROUTES.userhome.component} />        
@@ -21,9 +25,13 @@ function Navigation() {
         <Route path={ROUTES.userhome.name} element={ROUTES.userhome.component} />
         <Route path={ROUTES.departmentUser.name} element={ROUTES.departmentUser.component} />
         <Route path={ROUTES.userCart.name} element={ROUTES.userCart.component} />
-        <Route path={ROUTES.OrderSummary.name} element={ROUTES.OrderSummary.component} />
         <Route path={ROUTES.payment.name} element={ROUTES.payment.component} />
+        <Route path={ROUTES.OrderSummary.name} element={ROUTES.OrderSummary.component} />
+        <Route path={ROUTES.ThankuPage.name} element={ROUTES.ThankuPage.component} />
+        <Route path={ROUTES.canclePage.name} element={ROUTES.canclePage.component} />
 
+
+        
         
 
 

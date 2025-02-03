@@ -2,9 +2,11 @@ import About from "../containers/about/About";
 import Department from "../containers/admin/department/Department";
 import Product from "../containers/admin/product/Product";
 import University from "../containers/admin/unversity/University";
+import Cancled from "../containers/cart/Cancled";
 import Cart from "../containers/cart/Cart";
 import OrderSummary from "../containers/cart/OrderSummary";
 import PaymentForm from "../containers/cart/Payment";
+import ThankuPage from "../containers/cart/ThankuPage";
 import Contact from "../containers/contact/Contact";
 import Login from "../containers/login/Login";
 import Register from "../containers/register/Register";
@@ -69,7 +71,7 @@ const  ROUTES={
     userCart:{
         name:"/userCart",
         component:<Cart/>,
-    },
+    },    
     OrderSummary:{
         name:"/orderSummary",
         component:<OrderSummary/>,
@@ -77,6 +79,14 @@ const  ROUTES={
     payment:{
         name:"/payment",
         component:<PaymentForm/>,
+    },
+    ThankuPage:{
+        name:"/thanku",
+        component:<ThankuPage/>,
+    },
+    canclePage:{
+        name:"/cancle",
+        component:<Cancled/>,
     },
 
 };
