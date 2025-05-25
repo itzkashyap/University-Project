@@ -10,7 +10,7 @@ function UserHome() {
 
   function getAllUniversities() {
     try {
-      axios.get("http://127.0.0.1:8080/university").then((d) => {
+      axios.get("https://university-project-44ul.onrender.com/university").then((d) => {
         setUniversities(d.data.univData);
       });
     } catch (error) {
@@ -29,7 +29,7 @@ function UserHome() {
           <div className="card">
             <img
               className="card-img-top"
-              src={"http://127.0.0.1:8080/" + item.image} height="150px" width="250px"
+              src={"https://university-project-44ul.onrender.com/" + item.image} height="150px" width="250px"
               alt="Card image cap"
             />
             <div className="card-body">

@@ -18,7 +18,7 @@ function UserProduct() {
 
   function GetProductByDepartmentId(){
     try {
-      axios.get("http://127.0.0.1:8080/product?id="+query.get("id"))
+      axios.get("https://university-project-44ul.onrender.com/product?id="+query.get("id"))
       .then((d)=>{
         setProducts(d.data.prdData);
       });
@@ -36,7 +36,7 @@ return products?.map((item)=>{
   return (
     <div className="col-3">
       <div class="card" >
-        <img class="card-img-top" src={"http://127.0.0.1:8080/" + item.images} height="150px" width="250px" alt="Card image cap" />
+        <img class="card-img-top" src={"https://university-project-44ul.onrender.com/" + item.images} height="150px" width="250px" alt="Card image cap" />
         <div class="card-body">
           <h5 class="card-title">{item.name}</h5>
           

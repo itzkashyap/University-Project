@@ -37,7 +37,7 @@ function Product() {
 
   function GetProductByDepartmentId(){
     try {
-      axios.get("http://127.0.0.1:8080/product?id="+query.get("id")).then((d)=>{
+      axios.get("https://university-project-44ul.onrender.com/product?id="+query.get("id")).then((d)=>{
         setProducts(d.data.prdData);
        
 
@@ -67,7 +67,7 @@ function Product() {
       formData.append("qty",form.qty);
       formData.append("price",form.price);
 
-      axios.post("http://127.0.0.1:8080/product",formData,{
+      axios.post("https://university-project-44ul.onrender.com/product",formData,{
         'Content-Type': 'multipart/form-data'
       }).then((d)=>{
         alert(d.data.message);
@@ -105,7 +105,7 @@ function Product() {
       formData.append("price",form.price);
       formData.append("id",productId);
 
-      axios.put("http://127.0.0.1:8080/product",formData,{
+      axios.put("https://university-project-44ul.onrender.com/product",formData,{
         'Content-Type': 'multipart/form-data'
       }).then((d)=>{
         alert(d.data.message);
@@ -120,7 +120,7 @@ function Product() {
   function DeleteProduct(id){
     try {   
 
-      axios.delete("http://127.0.0.1:8080/product",{data:{_id:id}}).then((d)=>{
+      axios.delete("https://university-project-44ul.onrender.com/product",{data:{_id:id}}).then((d)=>{
         alert(d.data.message);
         GetProductByDepartmentId();
         resetForm();
@@ -168,13 +168,13 @@ function Product() {
           <tr>
             <td>
 
-               <img src={"http://127.0.0.1:8080/" +item.images[0]} height="150px" width="250px"/>
+               <img src={"https://university-project-44ul.onrender.com/" +item.images[0]} height="150px" width="250px"/>
 
               {/* <div id={`carousel${item._id}`} className="carousel slide" data-ride="carousel">
                 <div className="carousel-inner">
                   {item.images.map((img, index) => (
                     <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-                      <img src={"http://127.0.0.1:8080/" + img} className="d-block w-100" alt={`Product ${index}`} style={{ width: '100px', height: '100px' }} />
+                      <img src={"https://university-project-44ul.onrender.com/" + img} className="d-block w-100" alt={`Product ${index}`} style={{ width: '100px', height: '100px' }} />
                     </div>
                   ))}
                 </div>

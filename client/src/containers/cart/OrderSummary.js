@@ -37,7 +37,7 @@ const OrderSummary = () => {
     if (Object.values(addressForm).some((value) => value === "")) return;
 
     try {
-      const response = await axios.post("http://127.0.0.1:8080/address", addressForm);
+      const response = await axios.post("https://university-project-44ul.onrender.com/address", addressForm);
       setAddresses([...addresses, response.data]);
       setAddressForm({
         street: "",
@@ -59,7 +59,7 @@ const OrderSummary = () => {
   useEffect(() => {
     const fetchAddresses = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8080/getaddress");
+        const response = await axios.get("https://university-project-44ul.onrender.com/getaddress");
         setAddresses(response.data);
         fetchCart();
       } catch (error) {
@@ -69,7 +69,7 @@ const OrderSummary = () => {
 
     const fetchCart = async () => {
       try {
-        const res = await axios.get("http://127.0.0.1:8080/getItems");
+        const res = await axios.get("https://university-project-44ul.onrender.com/getItems");
         setCart(res.data[0]);
       } catch (error) {
         console.error("Error fetching cart:", error);

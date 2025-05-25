@@ -30,7 +30,7 @@ function Register() {
 
   function registeruser() {
     try {
-      axios.post('http://127.0.0.1:8080/user', form).then((d) => {
+      axios.post('https://university-project-44ul.onrender.com/user', form).then((d) => {
         alert(d.data.message);
         navigate(ROUTES.login.name);
       });

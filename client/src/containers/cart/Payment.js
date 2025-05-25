@@ -24,7 +24,7 @@ const CheckoutForm = ({ amount, cart, selectedAddress }) => {
 
     try {
       const { data } = await axios.post(
-        "http://127.0.0.1:8080/api/payments/create-payment-intent",
+        "https://university-project-44ul.onrender.com/api/payments/create-payment-intent",
         {
           amount, // No need to multiply by 100 here
           currency: "inr",
@@ -61,17 +61,17 @@ const result = await stripe.confirmCardPayment(data.clientSecret, {
       };
 
       const orderResponse = await axios.post(
-        "http://127.0.0.1:8080/api/orders/placeOrder",
+        "https://university-project-44ul.onrender.com/api/orders/placeOrder",
         orderDetails
       );
       
       const orderId = orderResponse.data.order._id;
 
       await axios.put(
-        `http://127.0.0.1:8080/api/orders/updateOrderStatus/${orderId}`,
+        `https://university-project-44ul.onrender.com/api/orders/updateOrderStatus/${orderId}`,
         { status: "Success" }
       );
-      await axios.post("http://127.0.0.1:8080/carts/clearCartAfterPayment", {
+      await axios.post("https://university-project-44ul.onrender.com/carts/clearCartAfterPayment", {
         userId: localStorage.getItem("id"),  // Pass userId here
       });
 

@@ -17,7 +17,7 @@ function University() {
 
   const getUniversities = () => {
     axios
-      .get('http://127.0.0.1:8080/university')
+      .get('https://university-project-44ul.onrender.com/university')
       .then((d) => {
         setUniversities(d.data.univData);
       })
@@ -36,7 +36,7 @@ function University() {
       formData.append('name', form.name);
       formData.append('image', form.image);
       axios
-        .post('http://127.0.0.1:8080/university', formData, {
+        .post('https://university-project-44ul.onrender.com/university', formData, {
           'Content-Type': 'multipart/form-data',
         })
         .then((d) => {
@@ -60,7 +60,7 @@ function University() {
       formData.append('image', form.image, form.image.name);
       formData.append('_id', universityId);
       axios
-        .put('http://127.0.0.1:8080/university', formData, {
+        .put('https://university-project-44ul.onrender.com/university', formData, {
           'Content-Type': 'multipart/form-data',
         })
         .then((d) => {
@@ -76,7 +76,7 @@ function University() {
   const deleteUniversity = (id) => {
     try {
       axios
-        .delete('http://127.0.0.1:8080/university', { data: { _id: id } })
+        .delete('https://university-project-44ul.onrender.com/university', { data: { _id: id } })
         .then((d) => {
           alert(d.data.message);
           getUniversities();
@@ -109,7 +109,7 @@ function University() {
     return universities?.map((item) => (
       <tr>
         <td>
-          <img src={"http://127.0.0.1:8080/"+item.image}  />
+          <img src={"https://university-project-44ul.onrender.com/"+item.image}  />
          
         </td>
         <td>{item.name}</td>

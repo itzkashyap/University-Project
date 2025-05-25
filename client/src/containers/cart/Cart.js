@@ -16,7 +16,7 @@ const ShoppingCart = () => {
   const fetchCart = async () => {
     debugger
     try {
-      const res = await axios.get("http://127.0.0.1:8080/getItems");
+      const res = await axios.get("https://university-project-44ul.onrender.com/getItems");
       setCart(res.data[0]); // Assuming this is an array with one cart
     } catch (error) {
       console.error("Error fetching cart:", error);
@@ -26,7 +26,7 @@ const ShoppingCart = () => {
   const updateQuantity = async (productId, quantity) => {
     if (quantity < 1) return;
     try {
-      await axios.put(`http://127.0.0.1:8080/update/${cart.userId}`, {
+      await axios.put(`https://university-project-44ul.onrender.com/update/${cart.userId}`, {
         userId: cart.userId,
         productId,
         quantity,
@@ -39,7 +39,7 @@ const ShoppingCart = () => {
 
   const removeItem = async (productId) => {
     try {
-      await axios.delete(`http://127.0.0.1:8080/delete/${cart.userId}`, {
+      await axios.delete(`https://university-project-44ul.onrender.com/delete/${cart.userId}`, {
         data: { userId: cart.userId, productId },
       });
       fetchCart();
@@ -61,7 +61,7 @@ const ShoppingCart = () => {
           {cart.items.map((item) => (
             <div key={item._id} className="cart-item">  
               <img
-                src={`http://127.0.0.1:8080/${item.productId.images[0]}`}
+                src={`https://university-project-44ul.onrender.com/${item.productId.images[0]}`}
                 alt={item.productId.name}
                 className="product-image"
               />

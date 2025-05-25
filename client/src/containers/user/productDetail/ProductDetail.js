@@ -19,7 +19,7 @@ function ProductDetail() {
 
   function getProductDetail(){
    try {
-    axios.get("http://127.0.0.1:8080/productDetails?id=" + query.get("id")).then((res)=>{
+    axios.get("https://university-project-44ul.onrender.com/productDetails?id=" + query.get("id")).then((res)=>{
       // console.log(res.data);
       setPrd(res.data.prdData);
     })
@@ -36,7 +36,7 @@ function ProductDetail() {
  function renderImage(){
   return prd?.images.map((item)=>{
     return(
-      <img className='mx-auto' src={"http://127.0.0.1:8080/"+ item} height="150px" width="300px"/>
+      <img className='mx-auto' src={"https://university-project-44ul.onrender.com/"+ item} height="150px" width="300px"/>
     )
   });
  }
@@ -58,7 +58,7 @@ function ProductDetail() {
 //   }
 
 //   try {
-//     axios.post("http://127.0.0.1:8080/cart", {
+//     axios.post("https://university-project-44ul.onrender.com/cart", {
 //       userId: userId,
 //       productId: prd._id,
 //       quantity: prd.qty

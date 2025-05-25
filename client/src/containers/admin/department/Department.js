@@ -32,7 +32,7 @@ function Department() {
   function GetDepartmentByUniversityId(){
     debugger
     try {
-      axios.get("http://127.0.0.1:8080/department?id="+query.get("id")).then((d)=>{
+      axios.get("https://university-project-44ul.onrender.com/department?id="+query.get("id")).then((d)=>{
         setDepartments(d.data.depData);  
         // console.log(d.data);      
       });
@@ -53,7 +53,7 @@ function Department() {
       formData.append("image",form.image);
       formData.append("universityId",query.get("id"));
 
-      axios.post("http://127.0.0.1:8080/department",formData,{
+      axios.post("https://university-project-44ul.onrender.com/department",formData,{
          'Content-Type': 'multipart/form-data'
       }).then((d)=>{
         alert(d.data.message);
@@ -77,7 +77,7 @@ function Department() {
         formData.append("universityId",query.get("id"));
         formData.append("_id",departmentId);
   
-        axios.put("http://127.0.0.1:8080/department",formData,{
+        axios.put("https://university-project-44ul.onrender.com/department",formData,{
            'Content-Type': 'multipart/form-data'
         }).then((d)=>{
           alert(d.data.message);
@@ -92,7 +92,7 @@ function Department() {
     function DeleteDepartment(id){
       try{      
   
-        axios.delete("http://127.0.0.1:8080/department",{data:{_id:id}}       
+        axios.delete("https://university-project-44ul.onrender.com/department",{data:{_id:id}}       
         ).then((d)=>{
           alert(d.data.message);
           GetDepartmentByUniversityId();
@@ -128,7 +128,7 @@ function Department() {
       return(
         <tr>
           <td>
-            <img src={'http://127.0.0.1:8080/'+item.image} height="250px" width="400px"/>
+            <img src={'https://university-project-44ul.onrender.com/'+item.image} height="250px" width="400px"/>
           </td>
           <td>{item.name}</td>
           <td>

@@ -17,7 +17,7 @@ function UserDepartment() {
   function getDepartmentsByUniversityId() {
     try {
       console.log( query.get("id"))
-      axios.get("http://127.0.0.1:8080/department?id="+ query.get("id")).then((d) => {
+      axios.get("https://university-project-44ul.onrender.com/department?id="+ query.get("id")).then((d) => {
           setDepartments(d.data.depData);
         },
       );
@@ -36,7 +36,7 @@ function UserDepartment() {
           <div className="card">
             <img
               className="card-img-top"
-              src={"http://127.0.0.1:8080/" + item.image}
+              src={"https://university-project-44ul.onrender.com/" + item.image}
               alt="Card image cap"
             />
             <div className="card-body">
