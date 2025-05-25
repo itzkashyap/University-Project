@@ -1,0 +1,88 @@
+    .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 89vh;
+        background: linear-gradient(to right, #1e3c72, #2a5298);
+    }
+    
+    .login-card {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 400px;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .login-header h2 {
+        margin: 0;
+        color: #1e3c72;
+    }
+    
+    .login-header p {
+        color: #6c757d;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+    }
+    
+    .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+    }
+    
+    .error-text {
+        color: red;
+        font-size: 12px;
+    }
+    
+    .form-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .btn {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
+    .btn-primary {
+        background: #1e3c72;
+        color: #fff;
+    }
+    
+    .btn-secondary {
+        background: #6c757d;
+        color: #fff;
+    }
+    
+    .divider {
+        margin: 15px 0;
+        color: #6c757d;
+    }
+    
+    .login-footer {
+        margin-top: 15px;
+    }
+    
+    .login-footer a {
+        color: #1e3c72;
+        text-decoration: none;
+    }
